@@ -22,7 +22,7 @@
 #' sir.sinusoidal.forcing <- SIRSinusoidalForcing(pars = parameters, 
 #'                                                init = initials, 
 #'                                                time = 0:(60 * 365))
-#' PlotModels(sir.sinusoidal.forcing)                                          
+#' PlotMods(sir.sinusoidal.forcing)                                          
 #'                                                
 #' # Solve bifurcation dynamics for 20 years.
 #' # If max(time) < 3650, bifurcation dynamics are solved for 3650 time-steps.
@@ -32,9 +32,9 @@
 #' # bifur <- SIRSinusoidalForcing(pars = parameters2, 
 #' #                               init = initials,
 #' #                               time = 0:(20 * 365))
-#' # PlotModels(bifur, bifur = T)
+#' # PlotMods(bifur, bifur = TRUE)
 #' 
-PlotModels <- function(model.out = NULL, variables = NULL, x.label = NULL, y.label = NULL, legend.title = 'variable', line.size = 1, text.size = 14,  grid = T, bifur = F) {
+PlotMods <- function(model.out = NULL, variables = NULL, x.label = NULL, y.label = NULL, legend.title = 'variable', line.size = 1, text.size = 14,  grid = TRUE, bifur = FALSE) {
   value <- variable <- x <- y <- NULL
   if (bifur == FALSE) {
     if (is.null(variables)) {
@@ -51,9 +51,9 @@ PlotModels <- function(model.out = NULL, variables = NULL, x.label = NULL, y.lab
         variables = c(1, variables)
       }
       if (is.data.frame(model.out)) {
-        model <- model.out[ , variables]
+        model <- model.out
       } else {
-        model <- model.out$results[ , variables]
+        model <- model.out$results
       }
     }
     if (is.null(x.label)) {
@@ -69,7 +69,7 @@ PlotModels <- function(model.out = NULL, variables = NULL, x.label = NULL, y.lab
       grid.newpage()
       pushViewport(viewport(layout = grid.layout(length(variables) - 1, 1)))
       for (i in 1:(length(variables) - 1)) {
-        tmp <- model[ , c(1, variables[-1][i])]
+        tmp <- model[ , c(variables[1], variables[-1][i])]
         var <- names(tmp)[2]
         names(tmp)[2] <- 'value'
         print(ggplot(tmp, aes(time, value)) +
@@ -78,7 +78,7 @@ PlotModels <- function(model.out = NULL, variables = NULL, x.label = NULL, y.lab
               vp = vplayout(i, 1))  
       }
     } else {
-      model <- melt(model, id = 'time')
+      model <- melt(model[ , variables], id = 'time')
       print(ggplot(model, aes(time, value, color = variable)) +
         geom_line(size = line.size) +
         scale_colour_discrete(name = legend.title) +
