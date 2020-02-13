@@ -4,9 +4,17 @@
 \alias{PlotMods}
 \title{Plot results of capm model functions}
 \usage{
-PlotMods(model.out = NULL, variables = NULL, x.label = NULL,
-  y.label = NULL, legend.title = "variable", line.size = 1,
-  text.size = 14, grid = TRUE, bifur = FALSE)
+PlotMods(
+  model.out = NULL,
+  variables = NULL,
+  x.label = NULL,
+  y.label = NULL,
+  legend.title = "variable",
+  line.size = 1,
+  text.size = 14,
+  grid = TRUE,
+  bifur = FALSE
+)
 }
 \arguments{
 \item{model.out}{output of aEpiDynamics' function.}
@@ -55,4 +63,3 @@ parameters2 <- list(beta0 = 17 / 13, beta1 = seq(0.001, 0.251, by = 0.001),
 # PlotMods(bifur, bifur = TRUE)
 
 }
-

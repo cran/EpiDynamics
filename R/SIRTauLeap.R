@@ -6,7 +6,6 @@
 #' @details This is the R version of program 6.5 from page 204 of "Modeling Infectious Disease in humans and animals" by Keeling & Rohani.
 #' @return \code{\link{list}}. The first three elements are the vectors \code{*$pars}, \code{*$init} and \code{*$time}, containing the \code{pars}, \code{init} and \code{end.time} arguments of the function. The fourth element \code{*$results} is a \code{\link{data.frame}} with up to as many rows as time steps determined by the parameters \code{tau} and \code{end.time}. The first column contains the time steps. The second, third and fourth columns contain the number of susceptibles, infectious and recovered.
 #' @references Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-#' \href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals}
 #' @export
 #' @examples 
 #' # Parameters and initial conditions.

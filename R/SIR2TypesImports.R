@@ -7,7 +7,6 @@
 #' @details This is the R version of program 6.6 from page 210 of "Modeling Infectious Disease in humans and animals" by Keeling & Rohani.
 #' @return \code{\link{list}}. The first, second and third elements are the vectors (\code{*$pars}, \code{*$init}, \code{*$time}, containing the \code{pars}, \code{init} and \code{time} arguments of the function. The fourth element \code{*$results} is a \code{\link{data.frame}} with up to as many rows as elements in time. First column contains the time. The following columns contain the number of susceptibles, infectious, recovered and boolean for epsilon and delta imports.
 #' @references Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-#' \href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals}
 #' @seealso \link[deSolve]{ode}.
 #' @export
 #' @examples 

@@ -7,7 +7,6 @@
 #' @details This is the R version of program 5.4 from page 186 of "Modeling Infectious Disease in humans and animals" by Keeling & Rohani.
 #' @return \code{\link{list}}. The first element, \code{*$model}, is the model function. The second element is a list with the \code{*$pars} argument. The third and fourth elements are the vectors \code{*$init} and \code{*$time}, containing the \code{init} and \code{time} arguments of the function. The fifth element \code{*$results} is a \code{\link{data.frame}} with up to as many rows as elements in time. First column contains the time. Second, third and fourth columns contain the number of susceptibles, infectious and recovered.
 #' @references Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-#' \href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals}.
 #' @seealso \link[deSolve]{ode}.
 #' @export
 #' @examples 

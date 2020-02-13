@@ -22,7 +22,7 @@ SIRSinusoidalBirth(pars = NULL, init = NULL, time = NULL, ...)
 Solves a SIR model with sinusoidal forcing of the birth rate.
 }
 \details{
-This is the R version of program 5.3 from page 184 of "Modeling Infectious Disease in humans and animals" by Keeling & Rohani. To create bifurcations, \code{alpha1} must be a vector. For bifurcations, if max(time) < 3650), time is defined as c(0:3650).
+This is the R version of program 5.3 from page 184 of "Modeling Infectious Disease in humans and animals" by Keeling & Rohani. To create bifurcations, \code{alpha1} must be a vector. For bifurcations, if max(time) < 3650), time is defined as c(0:3650). Here, different to the original Python code, we wrote equations for the R population as R = 1 - S - I.
 }
 \examples{
                                   
@@ -52,9 +52,7 @@ PlotMods(sir.sinusoidal.birth)
 }
 \references{
 Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-\href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals}. It is important to note that we wrote equations for the R population based on equations in the website and because of the dynamic S + I + R fluctuates around 1. Then, using R = 1 - S - I solves this inconsistency.
 }
 \seealso{
 \link[deSolve]{ode}.
 }
-

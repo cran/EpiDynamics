@@ -4,10 +4,9 @@
 #' @param init \code{\link{vector}} with 3 values: the initial proportion of susceptibles and infectious. The names of these values must be "S" and "I", respectively. All parameters must be positive and S + I <= 1.
 #' @param time time sequence for which output is wanted; the first value of times must be the initial time.
 #' @param ... further arguments passed to \link[deSolve]{ode} function.
-#' @details This is the R version of program 5.3 from page 184 of "Modeling Infectious Disease in humans and animals" by Keeling & Rohani. To create bifurcations, \code{alpha1} must be a vector. For bifurcations, if max(time) < 3650), time is defined as c(0:3650).
+#' @details This is the R version of program 5.3 from page 184 of "Modeling Infectious Disease in humans and animals" by Keeling & Rohani. To create bifurcations, \code{alpha1} must be a vector. For bifurcations, if max(time) < 3650), time is defined as c(0:3650). Here, different to the original Python code, we wrote equations for the R population as R = 1 - S - I.
 #' @return \code{\link{list}}. The first element, \code{*$model}, is the model function. The second element is a \code{\link{list}} with the the \code{*$pars} argument. The third and fourth elements are the vectors (\code{*$init}, \code{*$time}, containing the \code{init} and \code{time} arguments of the function. The fifth element \code{*$results} is a \code{\link{data.frame}} with up to as many rows as elements in time. First column contains the time. Second, third and fourth columns contain the proportion of susceptibles, infectious and recovered.
 #' @references Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-#' \href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals}. It is important to note that we wrote equations for the R population based on equations in the website and because of the dynamic S + I + R fluctuates around 1. Then, using R = 1 - S - I solves this inconsistency.
 #' @seealso \link[deSolve]{ode}.
 #' @export
 #' @examples 

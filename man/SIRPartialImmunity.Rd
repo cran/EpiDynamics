@@ -43,9 +43,7 @@ PlotMods(sir.partial.immunity, variables = c('NIS', 'NIR'), grid = FALSE)
 }
 \references{
 Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-\href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals}
 }
 \seealso{
 \link[deSolve]{ode}.
 }
-

@@ -28,7 +28,7 @@ This is the R version of program 2.3 from page 35 of "Modeling Infectious Diseas
 # Parameters and initial conditions.
 parameters <- c(rho = 0.5, mu = 1 / (70 * 365), nu = 1 / (70 * 365),
                       beta = 520 / 365.0, gamma = 1 / 7)
-initials <- c(X = 0.2, Y = 1e-4, Z = 0)
+initials <- c(X = 0.2, Y = 1e-4, Z = 1 - 0.2 - 1e-4)
 
 # Solve and plot.
 # Uncomment the following lines (running it takes more than a few seconds):
@@ -40,9 +40,7 @@ initials <- c(X = 0.2, Y = 1e-4, Z = 0)
 }
 \references{
 Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-\href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals}
 }
 \seealso{
 \link[deSolve]{ode}.
 }
-

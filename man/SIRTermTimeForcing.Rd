@@ -4,8 +4,14 @@
 \alias{SIRTermTimeForcing}
 \title{SIR model with corrected term-time forcing (P 5.2).}
 \usage{
-SIRTermTimeForcing(pars = NULL, init = NULL, term.times = terms,
-  cicles = 10, low.term.first = TRUE)
+SIRTermTimeForcing(
+  pars = NULL,
+  init = NULL,
+  term.times = terms,
+  cicles = 10,
+  low.term.first = TRUE,
+  ...
+)
 }
 \arguments{
 \item{pars}{\code{\link{list}} with 4 values: the mean transmission rate, a scalar (or a \code{\link{vector}} to create bifurcations) with the amplitude of sinusoidal forcing, the removal recovery rate, and the per capita death rate. The names for these values must be: "beta0", "beta1", "gamma", and "mu", respectively. All parameters must be positive and beta1 <= 1.}
@@ -69,9 +75,7 @@ parameters2 <- list(beta0 = 17 / 13,
 }
 \references{
 Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-\href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals}
 }
 \seealso{
 \link[deSolve]{ode}.
 }
-

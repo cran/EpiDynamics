@@ -11,7 +11,6 @@
 #' This model is based on the behaviour os measles and other child-hood diseases. Transmission rate is low during term == -1 (e.g. holydas term) and high during term == 1 (e.g. school term). We can define the year as the temporal unit of \code{cicles} and each cicle is composed by a \code{term-time} sequence (see example).
 #' @return \code{\link{list}}. The first element, \code{*$model}, is the model function. The second, third and fourth elements are vectors (\code{*$pars}, \code{*$init}, \code{*$time}, respectively) containing the \code{pars}, \code{init} and \code{time} arguments of the function. The fifth element \code{*$results} is a \code{\link{data.frame}} with up to as many rows as elements in time. First column contains the time. Second, third and fourth columns contain the proportion of susceptibles, infectious and recovered.
 #' @references Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-#' \href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals} 
 #' @seealso \link[deSolve]{ode}.
 #' @export
 #' @examples 
@@ -51,7 +50,7 @@
 #' # PlotMods(bifur, bifur = TRUE)
 
 
-SIRTermTimeForcing <- function(pars = NULL, init = NULL, term.times = terms, cicles = 10, low.term.first = TRUE) {
+SIRTermTimeForcing <- function(pars = NULL, init = NULL, term.times = terms, cicles = 10, low.term.first = TRUE, ...) {
   
   end.time <- term.times[length(term.times)]
   cicles <- cicles - 1
@@ -107,7 +106,7 @@ SIRTermTimeForcing <- function(pars = NULL, init = NULL, term.times = terms, cic
       t_range <- seq(t_start, t_end)
       output2 <- ode(times = t_range,
                      func = DiffEqs,
-                     y = init, parms = pars)
+                     y = init, parms = pars, ...)
       output <- rbind(output, output2)
       init <- output2[nrow(output2), -1]
       
@@ -117,7 +116,7 @@ SIRTermTimeForcing <- function(pars = NULL, init = NULL, term.times = terms, cic
         t_range <- seq(t_start, t_end)
         output2 <- ode(times = t_range,
                        func = DiffEqs2,
-                       y = init, parms = pars)
+                       y = init, parms = pars, ...)
         output <- rbind(output, output2)
         init <- output2[nrow(output2), -1]
         
@@ -126,7 +125,7 @@ SIRTermTimeForcing <- function(pars = NULL, init = NULL, term.times = terms, cic
         t_range <- seq(t_start, t_end)
         output2 <- ode(times = t_range,
                        func = DiffEqs,
-                       y = init, parms = pars)
+                       y = init, parms = pars, ...)
         output <- rbind(output, output2)
         init <- output2[nrow(output2), -1]
       }

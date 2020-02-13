@@ -7,14 +7,13 @@
 #' @details This is the R version of program 2.4 from page 36 of "Modeling Infectious Disease in humans and animals" by Keeling & Rohani.
 #' @return \code{\link{list}}. The first element, \code{*$model}, is the model function. The second, third and fourth elements are the vectors (\code{*$pars}, \code{*$init}, \code{*$time}, containing the \code{pars}, \code{init} and \code{time} arguments of the function. The fifth element \code{*$results} is a \code{\link{data.frame}} with up to as many rows as elements in time. First column contains the time. Second, third and fourth columns contain the number of susceptibles, infectious and recovered.
 #' @references Keeling, Matt J., and Pejman Rohani. Modeling infectious diseases in humans and animals. Princeton University Press, 2008.
-#' \href{http://www.modelinginfectiousdiseases.org/}{Modeling Infectious Diseases in Humans and Animals} 
 #' @seealso \link[deSolve]{ode}.
 #' @export
 #' @examples 
 #' # Parameters and initial conditions.
 #' parameters<- c(rho = 0.5,mu = 1 / (70 * 365.0),nu= 1 / (70 * 365.0),
 #'                       beta = 520 / 365.0, gamma = 1 / 7)
-#' initials <- c(X = 0.2, Y = 1e-4, Z = 0)
+#' initials <- c(X = 0.2, Y = 1e-4, Z = 1 - 0.2 - 1e-4)
 #' 
 #' # Solve and plot.
 #' sir.induced.mortality2 <- SIRInducedMortality2(pars = parameters, 
